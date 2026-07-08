@@ -97,8 +97,8 @@ export default function SubmissionsPage() {
     <div className="space-y-6">
       <div className="animate-fade-in flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Citizen Submissions</h1>
-          <p className="mt-1 text-sm text-[var(--text-secondary)]">
+          <h1 className="text-2xl font-bold text-(--text-primary)">Citizen Submissions</h1>
+          <p className="mt-1 text-sm text-(--text-secondary)">
             {total} submissions from web, WhatsApp, SMS, voice, and offline channels
           </p>
         </div>
@@ -118,14 +118,14 @@ export default function SubmissionsPage() {
       {/* Filters */}
       <Card className="animate-slide-up">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="relative flex-1 min-w-[240px]">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--text-tertiary)]" />
+          <div className="relative flex-1 min-w-60">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-(--text-tertiary)" />
             <input
               type="search"
               placeholder="Search submissions..."
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }}
-              className="w-full h-9 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] pl-9 pr-4 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+              className="w-full h-9 rounded-lg border border-(--border-primary) bg-(--bg-secondary) pl-9 pr-4 text-sm focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
               aria-label="Search submissions"
             />
           </div>
@@ -133,7 +133,7 @@ export default function SubmissionsPage() {
           <select
             value={selectedSector}
             onChange={(e) => { setSelectedSector(e.target.value); setPage(1); }}
-            className="h-9 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 text-sm text-[var(--text-primary)] focus:border-primary-500 focus:outline-none"
+            className="h-9 rounded-lg border border-(--border-primary) bg-(--bg-secondary) px-3 text-sm text-(--text-primary) focus:border-primary-500 focus:outline-none"
             aria-label="Filter by sector"
           >
             <option value="">All Sectors</option>
@@ -145,7 +145,7 @@ export default function SubmissionsPage() {
           <select
             value={selectedStatus}
             onChange={(e) => { setSelectedStatus(e.target.value); setPage(1); }}
-            className="h-9 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 text-sm text-[var(--text-primary)] focus:border-primary-500 focus:outline-none"
+            className="h-9 rounded-lg border border-(--border-primary) bg-(--bg-secondary) px-3 text-sm text-(--text-primary) focus:border-primary-500 focus:outline-none"
             aria-label="Filter by status"
           >
             <option value="">All Statuses</option>
@@ -157,7 +157,7 @@ export default function SubmissionsPage() {
           <select
             value={sortBy}
             onChange={(e) => { setSortBy(e.target.value); setPage(1); }}
-            className="h-9 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 text-sm text-[var(--text-primary)] focus:border-primary-500 focus:outline-none"
+            className="h-9 rounded-lg border border-(--border-primary) bg-(--bg-secondary) px-3 text-sm text-(--text-primary) focus:border-primary-500 focus:outline-none"
             aria-label="Sort by"
           >
             <option value="createdAt">Sort: Latest</option>
@@ -171,7 +171,7 @@ export default function SubmissionsPage() {
       {loading && (
         <div className="flex items-center justify-center py-12">
           <Loader2 className="h-6 w-6 animate-spin text-primary-500" />
-          <span className="ml-2 text-sm text-[var(--text-tertiary)]">Loading submissions...</span>
+          <span className="ml-2 text-sm text-(--text-tertiary)">Loading submissions...</span>
         </div>
       )}
 
@@ -180,7 +180,7 @@ export default function SubmissionsPage() {
         <div className="space-y-3">
           {submissions.length === 0 && (
             <Card className="text-center py-12">
-              <p className="text-[var(--text-tertiary)]">No submissions found</p>
+              <p className="text-(--text-tertiary)">No submissions found</p>
             </Card>
           )}
 
@@ -192,7 +192,7 @@ export default function SubmissionsPage() {
               style={{ animationDelay: `${i * 30}ms` }}
             >
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-(--bg-tertiary) text-(--text-tertiary)">
                   {channelIcons[sub.channel] ?? <Globe className="h-3.5 w-3.5" />}
                 </div>
 
@@ -209,14 +209,14 @@ export default function SubmissionsPage() {
                     )}
                   </div>
 
-                  <h3 className="mt-1.5 text-sm font-semibold text-[var(--text-primary)] line-clamp-1">
+                  <h3 className="mt-1.5 text-sm font-semibold text-(--text-primary) line-clamp-1">
                     {sub.title ?? "Untitled submission"}
                   </h3>
-                  <p className="mt-0.5 text-xs text-[var(--text-secondary)] line-clamp-2">
+                  <p className="mt-0.5 text-xs text-(--text-secondary) line-clamp-2">
                     {sub.description}
                   </p>
 
-                  <div className="mt-2 flex items-center gap-4 text-xs text-[var(--text-tertiary)]">
+                  <div className="mt-2 flex items-center gap-4 text-xs text-(--text-tertiary)">
                     {sub.address && (
                       <span className="flex items-center gap-1">
                         <MapPin className="h-3 w-3" /> {sub.address}
@@ -241,7 +241,7 @@ export default function SubmissionsPage() {
                     </div>
                   )}
                   {sub.upvotes != null && (
-                    <div className="flex items-center gap-1 justify-end text-[var(--text-tertiary)]">
+                    <div className="flex items-center gap-1 justify-end text-(--text-tertiary)">
                       <ThumbsUp className="h-3 w-3" />
                       <span className="text-xs">{sub.upvotes}</span>
                     </div>
@@ -256,7 +256,7 @@ export default function SubmissionsPage() {
       {/* Pagination */}
       {!loading && totalPages > 1 && (
         <div className="flex items-center justify-between">
-          <p className="text-xs text-[var(--text-tertiary)]">
+          <p className="text-xs text-(--text-tertiary)">
             Page {page} of {totalPages} ({total} total)
           </p>
           <div className="flex gap-2">

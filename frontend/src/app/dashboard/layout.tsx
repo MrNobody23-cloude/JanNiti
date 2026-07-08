@@ -20,10 +20,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   if (status === "loading") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[var(--bg-primary)]">
+      <div className="flex min-h-screen items-center justify-center bg-(--bg-primary)">
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 animate-spin rounded-full border-3 border-primary-200 border-t-primary-600" />
-          <p className="text-sm text-[var(--text-tertiary)]">Loading...</p>
+          <p className="text-sm text-(--text-tertiary)">Loading...</p>
         </div>
       </div>
     );
